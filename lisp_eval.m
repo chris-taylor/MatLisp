@@ -1,6 +1,6 @@
 function out = lisp_eval(x, env)
 
-global PRINT_TRACE
+global TRACE
 
 out = [];
 
@@ -46,7 +46,7 @@ else
     proc = car(exps);
     args = cdr(exps);
     out  = feval(proc, args{:});
-    if PRINT_TRACE
+    if TRACE
         fprintf('*** applied function %s to arguments %s\n', strtrim(evalc('disp(proc)')), strtrim(evalc('disp(args)')))
     end
 end
